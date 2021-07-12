@@ -1,0 +1,18 @@
+Syntax :
+
+  <Command>      ::= <Statement> ';' | <BooleanExp> ';' | <ArithExp> ';' | QUIT
+  <Statement>    ::= IDENT ':=' <ArithExp>
+  <BooleanExp>   ::= <ArithExp> ( '=' | '<>' | '>' | '<' | '>=' | '<=' ) <ArithExp>
+  <ArithExp>     ::= <Term> | <ArithExp> '+' <Term> | <ArithExp> '-' <Term>
+  <Term>         ::= <Factor> | <Term> '*' <Factor> | <Term> '/' <Factor>
+  <Factor>       ::= [ SIGN ] NUM | IDENT | '(' <ArithExp> ')'
+
+Function :
+
+  ListAllVariables();          // just the names of the (global) variables,  sorted (from smallest to greatest)
+  ListAllFunctions();          // just the names of the (user-defined)  functions, sorted
+  ListVariable(char name[]);   // the definition of a particular variable
+  ListFunction(char name[]);   // the definition of a particular function
+  Done();                      // exit the interpreter
+  cout << ...                  // output from program
+  cin >> ...                   // input into program
